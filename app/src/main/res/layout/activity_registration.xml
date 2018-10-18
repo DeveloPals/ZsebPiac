@@ -53,6 +53,7 @@
                 android:drawableTint="#fff"
                 android:hint="Email"
                 android:paddingStart="15dp"
+                android:textColor="#d9d9d9"
                 android:textColorHint="#d9d9d9"
                 android:textSize="14sp"
                 android:transitionName="emailTransition" />
@@ -69,6 +70,7 @@
                 android:hint="Jelszó"
                 android:inputType="textPassword"
                 android:paddingStart="15dp"
+                android:textColor="#d9d9d9"
                 android:textColorHint="#d9d9d9"
                 android:textSize="14sp"
                 android:transitionName="passwordTransition" />
@@ -84,6 +86,7 @@
                 android:hint="Jelszó megerősítése"
                 android:inputType="textPassword"
                 android:paddingStart="15dp"
+                android:textColor="#d9d9d9"
                 android:textColorHint="#d9d9d9"
                 android:textSize="14sp" />
 
