@@ -51,8 +51,8 @@
                 android:drawableTint="#fff"
                 android:hint="Email"
                 android:paddingLeft="15dp"
-                android:textColor="#fff"
-                android:textColorHint="#d9d9d9"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHint="@color/colorPrimaryText"
                 android:textSize="14sp" />
 
             <AutoCompleteTextView
@@ -66,8 +66,8 @@
                 android:hint="Jelszó"
                 android:inputType="textPassword"
                 android:paddingLeft="15dp"
-                android:textColor="#d9d9d9"
-                android:textColorHint="#d9d9d9"
+                android:textColor="@color/colorPrimaryText"
+                android:textColorHint="@color/colorPrimaryText"
                 android:textSize="14sp" />
 
             <Button
