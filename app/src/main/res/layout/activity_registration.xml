@@ -99,15 +99,16 @@
         </LinearLayout>
     </ScrollView>
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/formScroll"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Adatvédelmi nyilatkozat elfogadása."
+        android:text="Adatvédelmi nyilatkozat elfogadása"
         android:textColor="#fff"
+        android:textColorLink="@color/colorAccent"
         android:textSize="16sp" />
 
 
