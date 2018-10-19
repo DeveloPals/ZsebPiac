@@ -4,17 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChooseActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".ChooseActivity">
 
     <LinearLayout
         android:layout_width="321dp"
         android:layout_height="556dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
         android:orientation="vertical"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp" >
+        android:paddingRight="16dp">
 
         <ImageView
             android:id="@+id/imageView5"
@@ -36,15 +42,8 @@
             android:id="@+id/imageView7"
             android:layout_width="match_parent"
             android:layout_height="35dp"
+            android:layout_marginBottom="30dp"
             app:srcCompat="@drawable/ostermelo" />
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            app:srcCompat="@drawable/vagy"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"/>
 
         <ImageView
             android:id="@+id/imageView9"
