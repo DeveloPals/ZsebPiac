@@ -8,7 +8,6 @@
     android:focusableInTouchMode="true"
     tools:context=".LoginActivity">
 
-
     <ImageView
         android:id="@+id/formBack"
         android:layout_width="match_parent"
