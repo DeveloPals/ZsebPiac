@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        printKeyHash();
+        //printKeyHash();
 
         mUserEmail = (AutoCompleteTextView) findViewById(R.id.user_email);
         mUserPassword = (AutoCompleteTextView) findViewById(R.id.user_password);
