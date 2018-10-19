@@ -36,7 +36,8 @@
             android:orientation="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            app:srcCompat="@drawable/ostermicon" />
+            app:srcCompat="@drawable/ostermicon"
+            />
 
         <ImageView
             android:id="@+id/imageView7"

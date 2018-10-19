@@ -19,8 +19,8 @@
         <activity android:name=".LoginActivity" android:windowSoftInputMode="adjustPan">
 
         </activity>
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".RegistrationActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".ForgotPasswordActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
