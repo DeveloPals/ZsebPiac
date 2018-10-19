@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private AutoCompleteTextView mUserPassword;
     private TextView mCreateAccount;
     private TextView mForgotPassword;
+    private Button mLoginButton;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -76,6 +77,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void LoginWithGoogle(GoogleSignInAccount account) {
         if(account != null){
             mUserEmail.setText(account.getEmail());
+            Intent chooseIntent = new Intent(LoginActivity.this, ChooseActivity.class);
+            startActivity(chooseIntent);
+
         }
     }
 
@@ -127,9 +131,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mUserPassword = (AutoCompleteTextView) findViewById(R.id.user_password);
         mCreateAccount = (TextView) findViewById(R.id.create_account);
         mForgotPassword = (TextView) findViewById(R.id.forgot_password);
-
+        mLoginButton = (Button) findViewById(R.id.user_login);
         mForgotPassword.setOnClickListener(this);
         mCreateAccount.setOnClickListener(this);
+        mLoginButton.setOnClickListener(this);
 
         //FACEBOOK LOGIN
         callbackManager = CallbackManager.Factory.create();
@@ -190,6 +195,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.user_login:
+                Intent chooseIntent = new Intent(LoginActivity.this, ChooseActivity.class);
+                startActivity(chooseIntent);
+                break;
             case R.id.fb_login_button:
                 LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile","email","user_birthday"));
                 break;
