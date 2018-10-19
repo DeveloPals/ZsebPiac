@@ -8,26 +8,26 @@
     tools:context=".ChooseActivity">
 
     <LinearLayout
-        android:layout_width="321dp"
-        android:layout_height="556dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginEnd="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:orientation="vertical"
         android:paddingLeft="16dp"
         android:paddingRight="16dp">
 
-        <ImageView
+        <TextView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
-            android:layout_height="86dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/valassz" />
+            android:layout_height="wrap_content"
+            android:text="Kerem valasszon"
+            android:textSize="35sp"
+            android:gravity="center"
+            android:fontFamily="@font/Painting_With_Chocolate"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_marginBottom="36dp"/>
+
 
         <ImageView
             android:id="@+id/imageView6"
@@ -39,12 +39,16 @@
             app:srcCompat="@drawable/ostermicon"
             />
 
-        <ImageView
-            android:id="@+id/imageView7"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginBottom="30dp"
-            app:srcCompat="@drawable/ostermelo" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/Painting_With_Chocolate"
+            android:gravity="center"
+            android:text="Ostermelo"
+            android:textColor="@color/colorGreen"
+            android:textSize="35sp"
+            android:layout_marginBottom="30dp"/>
 
         <ImageView
             android:id="@+id/imageView9"
@@ -52,11 +56,15 @@
             android:layout_height="150dp"
             app:srcCompat="@drawable/vasarloicon" />
 
-        <ImageView
-            android:id="@+id/imageView10"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            app:srcCompat="@drawable/vasarlo" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/Painting_With_Chocolate"
+            android:gravity="center"
+            android:text="Vasarlo"
+            android:textColor="@color/colorGreen"
+            android:textSize="35sp" />
 
 
     </LinearLayout>
