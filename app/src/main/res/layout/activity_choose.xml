@@ -18,50 +18,45 @@
         android:paddingRight="16dp">
 
         <TextView
-            android:id="@+id/imageView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kerem valasszon"
-            android:textSize="35sp"
+            android:layout_marginBottom="36dp"
             android:gravity="center"
-            android:fontFamily="@font/Painting_With_Chocolate"
+            android:text="Kerem valasszon"
             android:textColor="@color/colorPrimaryText"
-            android:layout_marginBottom="36dp"/>
+            android:textSize="35sp" />
 
 
         <ImageView
-            android:id="@+id/imageView6"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:onClick="ChooseProducers"
             android:orientation="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            app:srcCompat="@drawable/ostermicon"
-            />
+            app:srcCompat="@drawable/ostermicon" />
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/Painting_With_Chocolate"
+            android:layout_marginBottom="30dp"
             android:gravity="center"
+            android:onClick="ChooseProducers"
             android:text="Ostermelo"
             android:textColor="@color/colorGreen"
-            android:textSize="35sp"
-            android:layout_marginBottom="30dp"/>
+            android:textSize="35sp" />
 
         <ImageView
-            android:id="@+id/imageView9"
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:onClick="ChooseCustomer"
             app:srcCompat="@drawable/vasarloicon" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/Painting_With_Chocolate"
             android:gravity="center"
+            android:onClick="ChooseCustomer"
             android:text="Vasarlo"
             android:textColor="@color/colorGreen"
             android:textSize="35sp" />

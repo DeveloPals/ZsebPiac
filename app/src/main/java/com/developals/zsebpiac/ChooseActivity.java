@@ -1,10 +1,11 @@
 package com.developals.zsebpiac;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class ChooseActivity extends AppCompatActivity implements View.OnClickListener {
+public class ChooseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,11 +15,13 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    @Override
-    public void onClick(View v) {
-        /*switch v.getId(){
-            case true:
-                break;
-        }*/
+    public void ChooseCustomer(View view){
+        Intent producersIntent = new Intent(ChooseActivity.this, ProducersListActivity.class);
+        startActivity(producersIntent);
     }
+
+    public void ChooseProducers(View view){
+
+    }
+
 }

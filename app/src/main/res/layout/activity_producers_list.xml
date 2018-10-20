@@ -6,5 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".ProducersListActivity">
 
-    
+    <include
+        android:id="@+id/app_toolbar"
+        layout="@layout/toolbar" />
+
+    <ImageView
+        android:id="@+id/formBack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <AutoCompleteTextView
+            android:id="@+id/search_box"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/trans_white_rectangle"
+            android:drawableLeft="@drawable/ic_search_icon"
+            android:drawablePadding="15dp"
+            android:hint="Keresés termékre"
+            android:paddingLeft="15dp"
+            android:textColorHint="#d9d9d9"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="15sp" />
+
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignTop="@id/search_box"
+            android:layout_marginTop="32dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="16dp">
+        </ListView>
+
+    </LinearLayout>
+
+
 </RelativeLayout>
