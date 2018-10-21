@@ -29,7 +29,8 @@ public class ProducersListActivity extends AppCompatActivity {
         Toolbar mToolbar =  findViewById(R.id.app_toolbar);
         setSupportActionBar(mToolbar);
 
-        ListView listView = (ListView)findViewById(R.id.list_view);
+        View view = findViewById(R.id.search_and_list);
+        ListView listView = view.findViewById(R.id.list_view);
 
         CustomAdapter customAdapater = new CustomAdapter();
 

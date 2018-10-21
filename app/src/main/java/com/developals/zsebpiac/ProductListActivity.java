@@ -29,7 +29,8 @@ public class ProductListActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        ListView listView = findViewById(R.id.list_view);
+        View view = findViewById(R.id.search_and_list);
+        ListView listView = view.findViewById(R.id.list_view);
 
         CustomAdapter customAdapter = new CustomAdapter();
 
@@ -38,16 +39,22 @@ public class ProductListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int pid = intent.getIntExtra(ProducersListActivity.PRODUCERS_ID, 0);
 
-        View prodcuersView = findViewById(R.id.producer_data);
+        View producersView = findViewById(R.id.producer_data);
 
-        TextView line1 = prodcuersView.findViewById(R.id.text_view1);
-        TextView line2 = prodcuersView.findViewById(R.id.text_view2);
-        TextView line3 = prodcuersView.findViewById(R.id.text_view3);
+        TextView line1 = producersView.findViewById(R.id.text_view1);
+        TextView line2 = producersView.findViewById(R.id.text_view2);
+        TextView line3 = producersView.findViewById(R.id.text_view3);
 
         line1.setText(ProducersListActivity.LINE1[pid]);
         line2.setText(ProducersListActivity.LINE2[pid]);
         line3.setText(ProducersListActivity.LINE3[pid]);
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 
     class CustomAdapter extends BaseAdapter{

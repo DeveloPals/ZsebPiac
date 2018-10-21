@@ -21,7 +21,8 @@ public class ChooseActivity extends AppCompatActivity {
     }
 
     public void ChooseProducers(View view){
-
+        Intent producersIntent = new Intent(ChooseActivity.this, MyProductListActivity.class);
+        startActivity(producersIntent);
     }
 
 }

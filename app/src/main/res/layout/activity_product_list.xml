@@ -32,28 +32,11 @@
             android:layout_marginRight="20dp">
         </include>
 
-        <AutoCompleteTextView
-            android:id="@+id/search_box"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/trans_white_rectangle"
-            android:drawableLeft="@drawable/ic_search_icon"
-            android:drawablePadding="15dp"
-            android:hint="Keresés termékre"
-            android:paddingLeft="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="16dp"
-            android:textColorHint="#d9d9d9"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="15sp" />
-
-        <ListView
-            android:id="@+id/list_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </ListView>
+        <include
+            android:id="@+id/search_and_list"
+            layout="@layout/layout_search_and_list"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"/>
     </LinearLayout>
 
 </RelativeLayout>
