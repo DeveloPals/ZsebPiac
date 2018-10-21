@@ -1,5 +1,6 @@
 package com.developals.zsebpiac;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,10 +13,12 @@ import android.widget.TextView;
 
 public class ProducersListActivity extends AppCompatActivity {
 
+    public static final String PRODUCERS_ID = "com.developals.zsebpiac.PRODUCERS_ID";
+
     //int[] IMAGES = {};
-    String [] LINE1 = {"Szabó Péter", "Nagy Lajos", "Szőrős Géza", "Csinos Etelka", "Bódi Guszti"};
-    String [] LINE2 = {"12km", "5km", "14km", "23km", "1000km"};
-    String [] LINE3 = {"Méz", "Tejtemrék", "Hús", "Zöldség és gyümölcs", "Sültrumpli"};
+    public static String [] LINE1 = {"Szabó Péter", "Nagy Lajos", "Szőrős Géza", "Csinos Etelka", "Bódi Guszti"};
+    public static String [] LINE2 = {"12km", "5km", "14km", "23km", "1000km"};
+    public static String [] LINE3 = {"Méz", "Tejtemrék", "Hús", "Zöldség és gyümölcs", "Sültrumpli"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class ProducersListActivity extends AppCompatActivity {
 
         listView.setAdapter(customAdapater);
     }
+
 
     class CustomAdapter extends BaseAdapter {
 
@@ -67,8 +71,24 @@ public class ProducersListActivity extends AppCompatActivity {
             textView2.setText(LINE2[position]);
             textView3.setText(LINE3[position]);
 
+            ListItemClicklistener listener = new ListItemClicklistener();
+            convertView.setId(position);
+            convertView.setOnClickListener(listener);
+
             return convertView;
         }
+    }
+
+    private class ListItemClicklistener implements View.OnClickListener
+    {
+        @Override
+        public void onClick(View v)
+        {
+            Intent intent = new Intent(ProducersListActivity.this, ProductListActivity.class);
+            intent.putExtra(PRODUCERS_ID, v.getId());
+            startActivity(intent);
+        }
+
     }
 
 
