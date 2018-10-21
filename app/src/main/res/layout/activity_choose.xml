@@ -50,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:onClick="ChooseCustomer"
-            app:srcCompat="@drawable/vasarloicon" />
+            app:srcCompat="@drawable/vasarloicon"
+            android:layout_marginRight="35dp"/>
 
         <TextView
             android:layout_width="match_parent"
