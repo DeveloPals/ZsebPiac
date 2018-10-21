@@ -2,6 +2,14 @@
     <string name="app_name">ZsebPiac</string>
     <string name="facebook_app_id">354327718466314</string>
     <string name="fb_login_protocol_scheme">fb354327718466314</string>
-
+    <string-array name="product_category_array">
+        <item>Zöldség</item>
+        <item>Gyümölcs</item>
+        <item>Gabona</item>
+        <item>Tojás</item>
+        <item>Tejtermék</item>
+        <item>Hús</item>
+        <item>Méz</item>
+    </string-array>
 
 </resources>

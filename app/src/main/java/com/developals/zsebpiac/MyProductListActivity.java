@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
-public class MyProductListActivity extends AppCompatActivity {
+public class MyProductListActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,10 @@ public class MyProductListActivity extends AppCompatActivity {
         setTitle("Termékeim");
         Toolbar mToolbar =  findViewById(R.id.app_toolbar);
         setSupportActionBar(mToolbar);
+
+        ImageButton imageButton = findViewById(R.id.add_button);
+        imageButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -34,6 +40,16 @@ public class MyProductListActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.add_button:
+                Intent intent = new Intent(this, NewProductActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }

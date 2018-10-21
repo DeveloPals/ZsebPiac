@@ -45,7 +45,8 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ProductListActivity" />
         <activity android:name=".MyProductListActivity" />
-        <activity android:name=".ProducersDataActivity"></activity>
+        <activity android:name=".ProducersDataActivity" />
+        <activity android:name=".NewProductActivity"></activity>
     </application>
 
 </manifest>

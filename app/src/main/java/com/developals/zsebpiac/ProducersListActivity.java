@@ -69,7 +69,7 @@ public class ProducersListActivity extends AppCompatActivity {
             textView2.setText(LINE2[position]);
             textView3.setText(LINE3[position]);
 
-            ListItemClicklistener listener = new ListItemClicklistener();
+            ListItemClick listener = new ListItemClick();
             convertView.setId(position);
             convertView.setOnClickListener(listener);
 
@@ -77,7 +77,7 @@ public class ProducersListActivity extends AppCompatActivity {
         }
     }
 
-    private class ListItemClicklistener implements View.OnClickListener
+    private class ListItemClick implements View.OnClickListener
     {
         @Override
         public void onClick(View v)
