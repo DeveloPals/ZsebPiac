@@ -8,10 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class ProductListActivity extends AppCompatActivity {
+
+    public static String [] LINE1 = {"Kecskesajt", "Tehéntej"};
+    public static String [] LINE2 = {"1200Ft/kg", "290Ft/l"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,9 @@ public class ProductListActivity extends AppCompatActivity {
         setTitle("Termékek");
         Toolbar mToolbar =  findViewById(R.id.app_toolbar);
         setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         ListView listView = findViewById(R.id.list_view);
 
@@ -46,7 +53,7 @@ public class ProductListActivity extends AppCompatActivity {
     class CustomAdapter extends BaseAdapter{
         @Override
         public int getCount() {
-            return 0;
+            return 2;
         }
 
         @Override
@@ -63,7 +70,15 @@ public class ProductListActivity extends AppCompatActivity {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = getLayoutInflater().inflate(R.layout.layout_listitem, null);
 
+            ImageView imageView = convertView.findViewById(R.id.image_view);
+            TextView textView1 = convertView.findViewById(R.id.text_view1);
+            TextView textView2 = convertView.findViewById(R.id.text_view2);
+            TextView textView3 = convertView.findViewById(R.id.text_view3);
 
+            imageView.setImageResource(R.drawable.logo);
+            textView1.setText(LINE1[position]);
+            textView2.setText(LINE2[position]);
+            textView3.setText("");
 
             return convertView;
         }

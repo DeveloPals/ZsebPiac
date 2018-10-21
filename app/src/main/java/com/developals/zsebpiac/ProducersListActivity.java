@@ -29,9 +29,6 @@ public class ProducersListActivity extends AppCompatActivity {
         Toolbar mToolbar =  findViewById(R.id.app_toolbar);
         setSupportActionBar(mToolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         ListView listView = (ListView)findViewById(R.id.list_view);
 
         CustomAdapter customAdapater = new CustomAdapter();
