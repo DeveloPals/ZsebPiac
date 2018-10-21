@@ -41,13 +41,10 @@
             android:name=".ProducersListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ProducresDataActivity"
+            android:name=".ProducersDataActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ChooseActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".PList"
             android:screenOrientation="portrait" />
         <activity android:name=".ProductListActivity"></activity>
     </application>
