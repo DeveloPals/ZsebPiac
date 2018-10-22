@@ -16,9 +16,9 @@ public class ProducersListActivity extends AppCompatActivity {
     public static final String PRODUCERS_ID = "com.developals.zsebpiac.PRODUCERS_ID";
 
     //int[] IMAGES = {};
-    public static String [] LINE1 = {"Szabó Péter", "Nagy Lajos", "Szőrős Géza", "Csinos Etelka", "Bódi Guszti"};
-    public static String [] LINE2 = {"12km", "5km", "14km", "23km", "1000km"};
-    public static String [] LINE3 = {"Méz", "Tejtemrék", "Hús", "Zöldség és gyümölcs", "Sültrumpli"};
+    public static String [] LINE1 = {BackgroundWorker.customers.getLastName()+" "+BackgroundWorker.customers.getFirstName(), "Nagy Lajos", "Szőrős Géza", "Csinos Etelka", "Bódi Guszti"};
+    public static String [] LINE2 = {BackgroundWorker.customers.getEmail(), "5km", "14km", "23km", "1000km"};
+    public static String [] LINE3 = {Integer.toString(BackgroundWorker.customers.getId()), "Tejtemrék", "Hús", "Zöldség és gyümölcs", "Sültrumpli"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Color;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -31,6 +34,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.Task;
+import com.tooltip.Tooltip;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,6 +57,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView mCreateAccount;
     private TextView mForgotPassword;
     private Button mLoginButton;
+    static  boolean mlogin = false;
+    static String loginStatus;
+    static String username;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -136,6 +143,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mCreateAccount.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
 
+        mUserEmail.setText("root");
+        mUserPassword.setText("Root123");
+
         //FACEBOOK LOGIN
         callbackManager = CallbackManager.Factory.create();
         LoginManager.getInstance().registerCallback(callbackManager,
@@ -192,12 +202,54 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+
+    static void showTooltip(View v, int gravty)
+    {
+        Button btn = (Button)v;
+        Tooltip tooltip = new Tooltip.Builder(btn)
+                .setText(loginStatus)
+                .setTextColor(Color.WHITE)
+                .setGravity(gravty)
+                .setCornerRadius(8f)
+                .setDismissOnClick(true)
+                .show();
+
+    }
+
     @Override
-    public void onClick(View v) {
+    public void onClick(final View v) {
         switch (v.getId()) {
             case R.id.user_login:
-                Intent chooseIntent = new Intent(LoginActivity.this, ChooseActivity.class);
-                startActivity(chooseIntent);
+
+                username =  mUserEmail.getText().toString();
+                String password =  mUserPassword.getText().toString();
+                String type = "Login";
+                BackgroundWorker backgroundWorkerr = new BackgroundWorker(this);
+                backgroundWorkerr.execute(type,username,password);
+
+                Handler handler=new Handler();
+                Runnable r=new Runnable() {
+                    public void run()
+                    {
+                        if(mlogin==true) {
+                            Intent chooseIntent = new Intent(LoginActivity.this, ChooseActivity.class);
+                            startActivity(chooseIntent);
+                            showTooltip(v,Gravity.BOTTOM);
+
+
+                        }
+                        else
+                        {
+                            showTooltip(v,Gravity.BOTTOM);
+                        }
+
+                    }
+                };
+                handler.postDelayed(r, 1000);
+
+
+
+
                 break;
             case R.id.fb_login_button:
                 LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile","email","user_birthday"));

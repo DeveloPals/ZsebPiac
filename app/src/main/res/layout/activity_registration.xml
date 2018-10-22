@@ -90,6 +90,7 @@
                 android:textSize="14sp" />
 
             <Button
+                android:id="@+id/btnReg"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="30dp"
@@ -98,7 +99,8 @@
                 android:textAllCaps="false"
                 android:textColor="#000"
                 android:textSize="17dp"
-                android:transitionName="loginTransition" />
+                android:transitionName="loginTransition"
+                android:onClick="OnReg"/>
         </LinearLayout>
     </ScrollView>
 
