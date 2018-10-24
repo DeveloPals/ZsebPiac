@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     static  boolean mlogin = false;
     static String loginStatus;
     static String username;
+    static String forgotMailSend;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -261,6 +262,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(createAccountIntent);
                 break;
             case R.id.forgot_password:
+                forgotMailSend=mUserEmail.getText().toString();
                 Intent forgotPasswordIntent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(forgotPasswordIntent);
                 break;
