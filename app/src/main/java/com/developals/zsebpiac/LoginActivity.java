@@ -231,12 +231,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Runnable r=new Runnable() {
                     public void run()
                     {
-                        if(mlogin==true) {
+                        if(mlogin) {
                             Intent chooseIntent = new Intent(LoginActivity.this, ChooseActivity.class);
                             startActivity(chooseIntent);
                             showTooltip(v,Gravity.BOTTOM);
-
-
                         }
                         else
                         {
