@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.Properties;
+import java.util.Random;
 
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -24,6 +25,8 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import static com.developals.zsebpiac.LoginActivity.username;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
@@ -48,13 +51,33 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         fUserEmail.setText(LoginActivity.forgotMailSend);
     }
 
+    private  String passwordGenerator(int length)
+    {
+        String asd="sad";
+        char[] chars = "1234567890-=qwertyuiop[]asdfghjkl;zxcvbnm,./()_+QWERTYUIOP{}ASDFGHJKL:|~ZXCVBNM<>?()".toCharArray();
+        StringBuilder stringBuilder = new StringBuilder();
+        Random random = new Random();
+        for(int i = 0; i<length;i++)
+        {
+            char c = chars[random.nextInt(chars.length)];
+            stringBuilder.append(c);
+        }
+        return  stringBuilder.toString();
+    }
+
 
     public void onForgotPass(View view)
     {
         email = fUserEmail.getText().toString();
-        newPw = "valamivalami";
-        subject = "Forgot Password";
-        massage = "There is your new password: "+newPw;
+        newPw = passwordGenerator(15);
+        subject = "Új jelszó";
+        massage = "<h1>Kedves Ügyfelük itt az új jelszava: "+newPw+"<br></h1>" +
+                "Ezúton szeretnénk figyelmeztetni, hogy rögvest állítsa át a<br>" +
+                "beállítások menüpontban a jelszavát az Ön érdekében!<br>" +
+                "------------------------------------------------------------<br>" +
+                "<<Kérem erre az email-re ne válaszoljon!>><br>" +
+                "Üdv:<br>" +
+                "DevoPals";
 
 
         Properties props = new Properties();
@@ -70,12 +93,15 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             }
         });
 
-        pdialog = ProgressDialog.show(context, "", "Sending Mail...", true);
+        pdialog = ProgressDialog.show(context, "", "Emal küldése...", true);
 
         RetreiveFeedTask task = new RetreiveFeedTask();
         task.execute();
 
-
+//        String typee = "changePw";
+//        BackgroundWorker loginControllerr = new BackgroundWorker(this);
+//        loginControllerr.execute(typee, email, newPw);
+//
 
     }
 
@@ -104,7 +130,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             pdialog.dismiss();
             fUserEmail.setText("");
-            Toast.makeText(getApplicationContext(), "Message sent", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Email elküldve!", Toast.LENGTH_LONG).show();
         }
     }
 }

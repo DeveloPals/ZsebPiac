@@ -41,6 +41,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String login_url =  "http://pte-ttk.wscdev.hu/team6/login.php";
         String register_url =  "http://pte-ttk.wscdev.hu/team6/register.php";
         String getCustomerData_url =  "http://pte-ttk.wscdev.hu/team6/getCustomerData.php";
+        String changePw_url =  "http://pte-ttk.wscdev.hu/team6/pwChange.php";
 
         if (type.equals("Login"))
         {
@@ -157,6 +158,46 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             }
         }
 
+        if (type.equals("changePw"))
+        {
+            try {
+                String user_email = params[1];
+                String password = params[2];
+                URL url = new URL(changePw_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("user_email","UTF-8")+"="+URLEncoder.encode(user_email,"UTF-8")+"&"+
+                        URLEncoder.encode("password","UTF-8")+"="+URLEncoder.encode(password,"UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                String result = "";
+                String line = "";
+                while((line = bufferedReader.readLine())!=null)
+                {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return  result;
+
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
         return null;
     }
 
@@ -173,6 +214,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String str1 = "Sikeres_Bejelentkezes!";
         String str2 = "Sikertelen bejelentkezés!:  A megadott email cím nem létezik vagy a jelszó helytelen!";
         String emailExist = "FailedInsert";
+        String pwUpdate = "SikeresFrissites";
 
         if(str1.equals(result))
         {
@@ -206,6 +248,15 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             LoginActivity.loginStatus=customers.getEmail();
 
         }
+
+//        if(pwUpdate.equals(result))
+//        {
+//
+//        }
+//        else
+//        {
+//
+//        }
 
 
 
