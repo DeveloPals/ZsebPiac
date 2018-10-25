@@ -53,7 +53,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     private  String passwordGenerator(int length)
     {
-        String asd="sad";
         char[] chars = "1234567890-=qwertyuiop[]asdfghjkl;zxcvbnm,./()_+QWERTYUIOP{}ASDFGHJKL:|~ZXCVBNM<>?()".toCharArray();
         StringBuilder stringBuilder = new StringBuilder();
         Random random = new Random();
@@ -98,10 +97,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         RetreiveFeedTask task = new RetreiveFeedTask();
         task.execute();
 
-//        String typee = "changePw";
-//        BackgroundWorker loginControllerr = new BackgroundWorker(this);
-//        loginControllerr.execute(typee, email, newPw);
-//
+        String typee = "changePw";
+        BackgroundWorker loginControllerr = new BackgroundWorker(this);
+        loginControllerr.execute(typee, email, newPw);
+
 
     }
 
@@ -130,7 +129,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
             pdialog.dismiss();
             fUserEmail.setText("");
-            Toast.makeText(getApplicationContext(), "Email elküldve!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
         }
     }
 }

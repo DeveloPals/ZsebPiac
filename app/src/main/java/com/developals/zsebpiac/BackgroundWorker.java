@@ -214,7 +214,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String str1 = "Sikeres_Bejelentkezes!";
         String str2 = "Sikertelen bejelentkezés!:  A megadott email cím nem létezik vagy a jelszó helytelen!";
         String emailExist = "FailedInsert";
-        String pwUpdate = "SikeresFrissites";
+            String pwUpdate = "SikeresFrissites";
 
         if(str1.equals(result))
         {
