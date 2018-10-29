@@ -26,6 +26,9 @@ public class ChooseActivity extends AppCompatActivity {
     public void ChooseCustomer(View view){
         Intent producersIntent = new Intent(ChooseActivity.this, ProducersListActivity.class);
         startActivity(producersIntent);
+        String type = "getList";
+        Listing listingg = new Listing(this);
+        listingg.execute(type);
     }
 
     public void ChooseProducers(View view){

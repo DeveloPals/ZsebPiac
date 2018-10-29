@@ -100,7 +100,8 @@
                 android:textColor="#000"
                 android:textSize="17dp"
                 android:transitionName="loginTransition"
-                android:onClick="OnReg"/>
+                android:onClick="OnReg"
+                />
         </LinearLayout>
     </ScrollView>
 

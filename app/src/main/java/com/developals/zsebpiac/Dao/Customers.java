@@ -7,20 +7,20 @@ public class Customers {
         private String password;
         private String lastName;
         private String email ;
-        private String coordinate;
         private String picture;
+        private int producer_id;
 
         public Customers()
         {
 
         }
 
-    public Customers(int id,String password, String firstName, String lastName, String email, String coordinate, String picture) {
+    public Customers(int id,String password, String firstName, String lastName, String email, String picture,int producer_id) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.coordinate = coordinate;
+        this.producer_id = producer_id;
         this.picture = picture;
         this.password = password;
     }
@@ -65,14 +65,6 @@ public class Customers {
         this.email = email;
     }
 
-    public String getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(String coordinate) {
-        this.coordinate = coordinate;
-    }
-
     public String getPicture() {
         return picture;
     }
@@ -81,15 +73,26 @@ public class Customers {
         this.picture = picture;
     }
 
+    public int getProducer_id() {
+        return producer_id;
+    }
+
+    public void setProducer_id(int producer_id) {
+        this.producer_id = producer_id;
+    }
+
     @Override
     public String toString() {
         return "Customers{" +
                 "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", password='" + password + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", coordinate='" + coordinate + '\'' +
                 ", picture='" + picture + '\'' +
+                ", producer_id='" + producer_id + '\'' +
                 '}';
     }
 }
+
+

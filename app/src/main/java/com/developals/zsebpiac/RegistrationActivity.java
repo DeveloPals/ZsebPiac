@@ -52,6 +52,15 @@ public class RegistrationActivity extends AppCompatActivity {
 
         }
     }
+//    public void emailCheck (RegistrationActivity view)
+//    {
+//        String type = "emailCheck";
+//        String username =  mUserEmail.getText().toString();
+//        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+//        backgroundWorker.execute(type,username);
+//    }
+
+
 
     private boolean passwordValidation(String pw)
     {
@@ -78,6 +87,7 @@ public class RegistrationActivity extends AppCompatActivity {
         String password =  mUserPassword.getText().toString();
         String passwordConfirm =  mUserPasswordComfirm.getText().toString();
         emailValid = true;
+       // emailCheck(this);
 
         if(mUserDataCheck.isChecked())
         {
