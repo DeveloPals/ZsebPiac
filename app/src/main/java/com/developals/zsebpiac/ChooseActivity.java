@@ -15,10 +15,10 @@ public class ChooseActivity extends AppCompatActivity {
         // Lekérdezis es megkapja a loginolt ember adatait 7 adat van eddig,
         // php-t editelni kell, hogy adhassunk meg hozza
 
-        String username =  LoginActivity.username.toString();
+       /* String username =  LoginActivity.username.toString();
         String typee = "getCustomer";
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(typee,username);
+        backgroundWorker.execute(typee,username);*/
 
 
     }

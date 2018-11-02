@@ -28,19 +28,19 @@ public class MyProductListActivity extends AppCompatActivity implements View.OnC
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.settings:
+            case R.id.action_settings:
                 Intent intent = new Intent(this, ProducersDataActivity.class);
                 startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+                break;
+
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

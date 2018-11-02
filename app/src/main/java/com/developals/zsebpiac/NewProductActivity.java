@@ -13,7 +13,7 @@ public class NewProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_product);
 
-        setTitle("Termék felvitele");
+        setTitle("Új termék");
         Toolbar mToolbar =  findViewById(R.id.app_toolbar);
         setSupportActionBar(mToolbar);
 
@@ -23,7 +23,7 @@ public class NewProductActivity extends AppCompatActivity {
         Spinner spinner = findViewById(R.id.category_spinner);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.product_category_array, R.layout.simple_spinner_item);
+                R.array.product_category_array, R.layout.support_simple_spinner_dropdown_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 

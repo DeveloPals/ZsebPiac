@@ -26,8 +26,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import static com.developals.zsebpiac.LoginActivity.username;
-
 public class ForgotPasswordActivity extends AppCompatActivity {
 
 
@@ -45,10 +43,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        context = this;
+        /*context = this;
 
         fUserEmail = (AutoCompleteTextView) findViewById(R.id.userEmail);
-        fUserEmail.setText(LoginActivity.forgotMailSend);
+        fUserEmail.setText(LoginActivity.forgotMailSend);*/
     }
 
     private  String passwordGenerator(int length)
@@ -98,8 +96,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         task.execute();
 
         String typee = "changePw";
-        BackgroundWorker loginControllerr = new BackgroundWorker(this);
-        loginControllerr.execute(typee, email, newPw);
+        /*BackgroundWorker loginControllerr = new BackgroundWorker(this);
+        loginControllerr.execute(typee, email, newPw);*/
 
 
     }

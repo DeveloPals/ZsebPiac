@@ -9,7 +9,6 @@
     tools:context=".RegistrationActivity">
 
     <ImageView
-        android:id="@+id/formBack"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
@@ -17,7 +16,7 @@
         android:src="@drawable/background" />
 
     <ImageView
-        android:id="@+id/formLogo"
+        android:id="@+id/image_logo"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="25dp"
@@ -26,15 +25,15 @@
 
 
     <ScrollView
-        android:id="@+id/formScroll"
+        android:id="@+id/scroll_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/formLogo"
+        android:layout_below="@+id/image_logo"
         android:layout_marginTop="60dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:orientation="vertical"
@@ -42,7 +41,7 @@
             android:paddingRight="16dp">
 
             <AutoCompleteTextView
-                android:id="@+id/userEmail"
+                android:id="@+id/text_regemail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
@@ -52,13 +51,14 @@
                 android:drawableTint="#fff"
                 android:hint="Email"
                 android:paddingStart="15dp"
+                android:paddingLeft="15dp"
                 android:textColor="#d9d9d9"
                 android:textColorHint="#d9d9d9"
                 android:textSize="14sp"
                 android:transitionName="emailTransition" />
 
             <AutoCompleteTextView
-                android:id="@+id/userPassword"
+                android:id="@+id/text_regpassw"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
@@ -69,13 +69,14 @@
                 android:hint="Jelszó"
                 android:inputType="textPassword"
                 android:paddingStart="15dp"
+                android:paddingLeft="15dp"
                 android:textColor="#d9d9d9"
                 android:textColorHint="#d9d9d9"
                 android:textSize="14sp"
                 android:transitionName="passwordTransition" />
 
             <AutoCompleteTextView
-                android:id="@+id/userComfirm"
+                android:id="@+id/text_regconfirm"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/trans_white_rectangle"
@@ -85,12 +86,13 @@
                 android:hint="Jelszó megerősítése"
                 android:inputType="textPassword"
                 android:paddingStart="15dp"
+                android:paddingLeft="15dp"
                 android:textColor="#d9d9d9"
                 android:textColorHint="#d9d9d9"
                 android:textSize="14sp" />
 
             <Button
-                android:id="@+id/btnReg"
+                android:id="@+id/button_reg"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="30dp"
@@ -99,23 +101,21 @@
                 android:textAllCaps="false"
                 android:textColor="#000"
                 android:textSize="17dp"
-                android:transitionName="loginTransition"
-                android:onClick="OnReg"
-                />
+                android:transitionName="loginTransition" />
+
+            <CheckBox
+                android:id="@+id/checkbox_accept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Adatvédelmi nyilatkozat elfogadása"
+                android:textColor="#fff"
+                android:textColorLink="@color/colorAccent"
+                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 
-    <CheckBox
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/formScroll"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Adatvédelmi nyilatkozat elfogadása"
-        android:textColor="#fff"
-        android:textColorLink="@color/colorAccent"
-        android:textSize="16sp" />
+
 
 
 </RelativeLayout>

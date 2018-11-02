@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     tools:context=".ChooseActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,57 +18,50 @@
         android:layout_centerInParent="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="36dp"
             android:gravity="center"
-            android:text="Kerem valasszon"
+            android:text="@string/choose"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="35sp" />
+            android:textSize="32sp" />
 
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:onClick="ChooseProducers"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/ostermicon" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="36dp"
             android:gravity="center"
             android:onClick="ChooseProducers"
-            android:text="Ostermelo"
-            android:textColor="@color/colorGreen"
-            android:textSize="35sp" />
+            android:text="@string/producer"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="32sp" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="150dp"
+            android:scaleType="fitCenter"
             android:onClick="ChooseCustomer"
-            app:srcCompat="@drawable/vasarloicon"
-            android:layout_marginRight="35dp"/>
+            app:srcCompat="@drawable/vasarloicon"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:onClick="ChooseCustomer"
-            android:text="Vasarlo"
-            android:textColor="@color/colorGreen"
-            android:textSize="35sp" />
-
-
+            android:text="@string/customer"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="32sp" />
     </LinearLayout>
-
 
 </RelativeLayout>

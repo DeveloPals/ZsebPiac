@@ -1,23 +1,26 @@
 package com.developals.zsebpiac;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.Color;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.developals.zsebpiac.AsyncTask.AsyncResponse;
+import com.developals.zsebpiac.AsyncTask.ExceptionHandler;
+import com.developals.zsebpiac.AsyncTask.PostResponseAsyncTask;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -44,23 +47,21 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener,GoogleApiClient.OnConnectionFailedListener {
 
     private static final int RC_SIGN_IN = 9001;
+    private final String TAG = "LoginActivity";
 
     private CallbackManager callbackManager;
     private GoogleSignInClient mGoogleSignInClient;
 
-    private AutoCompleteTextView mUserEmail;
-    private AutoCompleteTextView mUserPassword;
-    private TextView mCreateAccount;
-    private TextView mForgotPassword;
-    private Button mLoginButton;
-    static  boolean mlogin = false;
-    static String loginStatus;
-    static String username;
-    static String forgotMailSend;
+    private AutoCompleteTextView etEmail;
+    private AutoCompleteTextView etPassword;
+    private TextView tvCreateAccount;
+    private TextView tvForgotPassword;
+    private Button btnLoginButton;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -84,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void LoginWithGoogle(GoogleSignInAccount account) {
         if(account != null){
-            mUserEmail.setText(account.getEmail());
+            etEmail.setText(account.getEmail());
             Intent chooseIntent = new Intent(LoginActivity.this, ChooseActivity.class);
             startActivity(chooseIntent);
 
@@ -105,6 +106,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             parameters.putString("fields", "id,email");
             request.setParameters(parameters);
             request.executeAsync();
+
+            Intent chooseIntent = new Intent(LoginActivity.this, ChooseActivity.class);
+            startActivity(chooseIntent);
         }
     }
 
@@ -112,7 +116,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         try{
             URL profilePicture = new URL("https://graph.facebook.com/"+object.getString("id")+"/picture?type=large"); //width=250&height=250");
             //Picasso.with(this).load(profilePicture.toString()).into(imageView);
-            mUserEmail.setText(object.getString("email"));
+            //etEmail.setText(object.getString("email"));
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (MalformedURLException e) {
@@ -135,17 +139,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //printKeyHash();
 
-        mUserEmail = (AutoCompleteTextView) findViewById(R.id.user_email);
-        mUserPassword = (AutoCompleteTextView) findViewById(R.id.user_password);
-        mCreateAccount = (TextView) findViewById(R.id.create_account);
-        mForgotPassword = (TextView) findViewById(R.id.forgot_password);
-        mLoginButton = (Button) findViewById(R.id.user_login);
-        mForgotPassword.setOnClickListener(this);
-        mCreateAccount.setOnClickListener(this);
-        mLoginButton.setOnClickListener(this);
+        etEmail = (AutoCompleteTextView) findViewById(R.id.text_login_email);
+        etPassword = (AutoCompleteTextView) findViewById(R.id.text_login_password);
+        tvCreateAccount = (TextView) findViewById(R.id.text_create_account);
+        tvForgotPassword = (TextView) findViewById(R.id.text_forgot_passw);
+        btnLoginButton = (Button) findViewById(R.id.button_login);
+        tvForgotPassword.setOnClickListener(this);
+        tvCreateAccount.setOnClickListener(this);
+        btnLoginButton.setOnClickListener(this);
 
-        mUserEmail.setText("root");
-        mUserPassword.setText("Root123");
+        etEmail.setText("root");
+        etPassword.setText("Root123");
 
         //FACEBOOK LOGIN
         callbackManager = CallbackManager.Factory.create();
@@ -167,13 +171,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 });
 
-        Button loginButton = (Button)findViewById(R.id.fb_login_button);
+        Button loginButton = (Button)findViewById(R.id.button_facebook);
         loginButton.setOnClickListener(this);
 
         //LoginWithFacebook(AccessToken.getCurrentAccessToken());
 
         //GOOGLE PLUS LOGIN
-        Button signInButton = (Button)findViewById(R.id.google_login_button);
+        Button signInButton = (Button)findViewById(R.id.button_google);
         signInButton.setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -203,66 +207,60 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
-    static void showTooltip(View v, int gravty)
-    {
-        Button btn = (Button)v;
-        Tooltip tooltip = new Tooltip.Builder(btn)
-                .setText(loginStatus)
-                .setTextColor(Color.WHITE)
-                .setGravity(gravty)
-                .setCornerRadius(8f)
-                .setDismissOnClick(true)
-                .show();
-
-    }
-
     @Override
     public void onClick(final View v) {
         switch (v.getId()) {
-            case R.id.user_login:
+            case R.id.button_login:
+                final String email = etEmail.getText().toString();
+                final String password = etPassword.getText().toString();
 
-                username =  mUserEmail.getText().toString();
-                String password =  mUserPassword.getText().toString();
-                String type = "Login";
-                BackgroundWorker backgroundWorkerr = new BackgroundWorker(this);
-                backgroundWorkerr.execute(type,username,password);
+                HashMap<String, String> loginData = new HashMap<>();
+                loginData.put("email", email);
+                loginData.put("password", password);
 
-                Handler handler=new Handler();
-                Runnable r=new Runnable() {
-                    public void run()
-                    {
-                        if(mlogin) {
-                            Intent chooseIntent = new Intent(LoginActivity.this, ChooseActivity.class);
-                            startActivity(chooseIntent);
-                            showTooltip(v,Gravity.BOTTOM);
+                PostResponseAsyncTask loginTask = new PostResponseAsyncTask(this,
+                        loginData, new AsyncResponse() {
+                    @Override
+                    public void processFinish(String s) {
+                        Log.d(TAG, s);
+                        if(s.contains("LoginSuccess")){
+                            SharedPreferences pref = getSharedPreferences("loginData", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putString("email", email);
+                            editor.putString("password", password);
+                            editor.commit();
+                            Intent in = new Intent(getApplicationContext(), ChooseActivity.class);
+                            startActivity(in);
                         }
-                        else
-                        {
-                            showTooltip(v,Gravity.BOTTOM);
+                        else{
+                            Toast.makeText(getApplicationContext(),
+                                    "Something went wrong. Cannot login.", Toast.LENGTH_LONG).show();
                         }
-
                     }
-                };
-                handler.postDelayed(r, 1000);
-
-
-
-
+                });
+                loginTask.setExceptionHandler(new ExceptionHandler() {
+                    @Override
+                    public void handleException(Exception e) {
+                        if(e != null && e.getMessage() != null){
+                          Log.d(TAG, e.getMessage());
+                        }
+                    }
+                });
+                loginTask.execute("http://pte-ttk.wscdev.hu/team6/zsebpiac/login.php");
                 break;
-            case R.id.fb_login_button:
+            case R.id.button_facebook:
                 LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile","email","user_birthday"));
                 break;
-            case R.id.google_login_button:
+            case R.id.button_google:
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, RC_SIGN_IN);
                 break;
-            case R.id.create_account:
+            case R.id.text_create_account:
                 Intent createAccountIntent = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(createAccountIntent);
                 break;
-            case R.id.forgot_password:
-                forgotMailSend=mUserEmail.getText().toString();
+            case R.id.text_forgot_passw:
+                //forgotMailSend=etEmail.getText().toString();
                 Intent forgotPasswordIntent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(forgotPasswordIntent);
                 break;
