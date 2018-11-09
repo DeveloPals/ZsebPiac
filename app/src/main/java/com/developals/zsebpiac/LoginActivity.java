@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.developals.zsebpiac.AsyncTask.AsyncResponse;
 import com.developals.zsebpiac.AsyncTask.ExceptionHandler;
 import com.developals.zsebpiac.AsyncTask.PostResponseAsyncTask;
+import com.developals.zsebpiac.Dao.User;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -213,6 +214,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.button_login:
                 final String email = etEmail.getText().toString();
                 final String password = etPassword.getText().toString();
+
+
 
                 HashMap<String, String> loginData = new HashMap<>();
                 loginData.put("email", email);
