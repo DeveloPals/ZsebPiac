@@ -19,9 +19,10 @@
     <string name="producer_id">Őstermelői azonosító</string>
     <string name="phones">Telefonszámok</string>
     <string name="addresses">Átvételi pontok</string>
-    <string name="old_passw">Régi jelszó</string>
-    <string name="new_passw">Új jelszó</string>
-    <string name="new_passw_again">Új jelszó mégegyszer</string>
+    <string name="old_passw">Régi jelszó:</string>
+    <string name="new_passw">Új jelszó:</string>
+    <string name="new_passw_again">Új jelszó mégegyszer:</string>
+    <string name="modify"><u>Módosítás</u></string>
     <string-array name="product_category_array">
         <item>Zöldség</item>
         <item>Gyümölcs</item>

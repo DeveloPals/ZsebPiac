@@ -35,7 +35,7 @@
             android:layout_height="150dp"
             android:onClick="ChooseProducers"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ostermicon" />
+             />
 
         <TextView
             android:layout_width="match_parent"
@@ -52,7 +52,7 @@
             android:layout_height="150dp"
             android:scaleType="fitCenter"
             android:onClick="ChooseCustomer"
-            app:srcCompat="@drawable/vasarloicon"/>
+            />
 
         <TextView
             android:layout_width="match_parent"

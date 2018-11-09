@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LocationActivity" >
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar_main" />
+
+    <ScrollView
+    android:layout_below="@id/toolbar_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/side_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/old_passw"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:textSize="@dimen/medium_text"/>
+
+        <EditText
+            android:id="@+id/text_zip_code"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_height"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:textSize="@dimen/medium_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_passw"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:textSize="@dimen/medium_text"/>
+
+        <EditText
+            android:id="@+id/text_city"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_height"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:textSize="@dimen/medium_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_passw_again"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:textSize="@dimen/medium_text"/>
+
+        <EditText
+            android:id="@+id/text_street_address"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_height"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:textSize="@dimen/medium_text"/>
+
+        <Button
+            android:id="@+id/button_add_location"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_height"
+            android:text="Módosítás"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -31,14 +31,15 @@
         <activity android:name=".ChooseActivity" />
         <activity android:name=".ProductListActivity" />
         <activity android:name=".MyProductListActivity" />
-        <activity android:name=".ProducersDataActivity" >
-
-        </activity>
-        <activity android:name=".NewProductActivity">
-
-        </activity>
-
-
+        <activity android:name=".ProducersDataActivity" />
+        <activity android:name=".NewProductActivity" />
+        <activity android:name=".ProducersData2Activity" />
+        <activity android:name=".NameActivity" />
+        <activity android:name=".DisplayNameActivity" />
+        <activity android:name=".PhoneActivity" />
+        <activity android:name=".LocationActivity" />
+        <activity android:name=".ModifyPasswActivity" />
+        <activity android:name=".ProducerIdActivity"></activity>
     </application>
 
 </manifest>

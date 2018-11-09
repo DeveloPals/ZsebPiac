@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NameActivity">
+
+    <include android:id="@+id/toolbar_main"
+        layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_below="@id/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/side_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/medium_text"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:text="Vezetéknév:"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <EditText
+            android:id="@+id/text_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_height"
+            android:layout_marginBottom="@dimen/basic_space"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/medium_text"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:text="Keresztnév:"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <EditText
+            android:id="@+id/text_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_height"
+            android:layout_marginBottom="@dimen/basic_space" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/medium_text"
+            android:layout_marginBottom="@dimen/basic_space"
+            android:text="Megjelenő név:"
+            android:textColor="@color/colorPrimaryText"/>
+
+        <EditText
+            android:id="@+id/text_displayed_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_height"
+            android:layout_marginBottom="20dp"
+            android:inputType="none"/>
+
+
+        <Button
+            android:id="@+id/button_save_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/basic_height"
+            android:text="Mentés"/>
+    </LinearLayout>
+</RelativeLayout>

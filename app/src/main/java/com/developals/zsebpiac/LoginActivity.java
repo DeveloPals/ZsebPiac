@@ -149,7 +149,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnLoginButton.setOnClickListener(this);
 
         etEmail.setText("root");
-        etPassword.setText("Root123");
+        etPassword.setText("root");
 
         //FACEBOOK LOGIN
         callbackManager = CallbackManager.Factory.create();
@@ -223,7 +223,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void processFinish(String s) {
                         Log.d(TAG, s);
-                        if(s.contains("LoginSuccess")){
+                        if(!s.contains("Error")){
                             SharedPreferences pref = getSharedPreferences("loginData", MODE_PRIVATE);
                             SharedPreferences.Editor editor = pref.edit();
                             editor.putString("email", email);

@@ -35,7 +35,7 @@ public class MyProductListActivity extends AppCompatActivity implements View.OnC
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent intent = new Intent(this, ProducersDataActivity.class);
+                Intent intent = new Intent(this, ProducersData2Activity.class);
                 startActivity(intent);
                 break;
 
