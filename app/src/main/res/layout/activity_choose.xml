@@ -9,8 +9,12 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:paddingTop="275dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/background" />
+        android:src="@drawable/choose" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,19 +27,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
+            android:layout_marginBottom="25dp"
             android:gravity="center"
             android:text="@string/choose"
-            android:textColor="@color/colorPrimaryText"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="32sp" />
-
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:onClick="ChooseProducers"
             android:scaleType="fitCenter"
-             />
+            android:src="@drawable/ostermelo" />
 
         <TextView
             android:layout_width="match_parent"
@@ -44,15 +47,18 @@
             android:gravity="center"
             android:onClick="ChooseProducers"
             android:text="@string/producer"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="32sp" />
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="28sp"
+            android:layout_marginTop="-75dp" />
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:scaleType="fitCenter"
             android:onClick="ChooseCustomer"
-            />
+            android:src="@drawable/vasarlo"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="10dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -61,7 +67,8 @@
             android:onClick="ChooseCustomer"
             android:text="@string/customer"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="32sp" />
+            android:textSize="28sp"
+            android:layout_marginTop="-75dp" />
     </LinearLayout>
 
 </RelativeLayout>

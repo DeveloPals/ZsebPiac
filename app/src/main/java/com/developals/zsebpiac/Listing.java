@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.developals.zsebpiac.Dao.Customers;
+//import com.developals.zsebpiac.Dao.Customers;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

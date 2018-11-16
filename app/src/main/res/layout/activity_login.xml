@@ -13,16 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/background" />
-
-    <ImageView
-        android:id="@+id/image_logo"
-        android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginTop="40dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo" />
-
+        android:src="@drawable/ujlogin"
+        android:layout_marginBottom="300dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,7 +25,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="200dp">
 
             <LinearLayout
                 android:id="@+id/layout_container"
@@ -50,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/basic_height"
                     android:layout_marginBottom="@dimen/basic_space"
-                    android:background="@drawable/trans_white_rectangle"
+                    android:background="@drawable/trans_black_rectangle"
                     android:drawableLeft="@drawable/ic_user_icon"
                     android:drawableStart="@drawable/ic_user_icon"
                     android:drawablePadding="15dp"
@@ -65,7 +58,7 @@
                     android:id="@+id/text_login_password"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/basic_height"
-                    android:background="@drawable/trans_white_rectangle"
+                    android:background="@drawable/trans_black_rectangle"
                     android:drawableLeft="@drawable/ic_password_icon"
                     android:drawableStart="@drawable/ic_password_icon"
                     android:drawablePadding="15dp"
@@ -86,7 +79,7 @@
                     android:background="@drawable/login_button"
                     android:text="@string/login"
                     android:textAllCaps="false"
-                    android:textColor="#000"
+                    android:textColor="#fff"
                     android:textSize="@dimen/medium_text" />
 
                 <TextView
@@ -96,14 +89,14 @@
                     android:gravity="end"
                     android:text="@string/forgot_passw"
                     android:textAllCaps="false"
-                    android:textColor="@drawable/text_button_color"
+                    android:textColor="@color/Green"
                     android:textSize="@dimen/medium_text" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:layout_marginTop="16dp">
+                    android:layout_marginTop="5dp">
 
                     <TextView
                         android:id="@+id/text_divide"
@@ -113,7 +106,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:text="@string/or"
-                        android:textColor="@color/colorPrimaryText"
+                        android:textColor="@color/colorHint"
                         android:textSize="@dimen/small_text" />
 
                     <View
@@ -122,7 +115,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toLeftOf="@id/text_divide"
                         android:layout_toStartOf="@id/text_divide"
-                        android:background="@color/colorPrimaryText" />
+                        android:background="@color/colorHint" />
 
                     <View
                         android:layout_width="match_parent"
@@ -130,7 +123,7 @@
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/text_divide"
                         android:layout_toEndOf="@+id/text_divide"
-                        android:background="@color/colorPrimaryText" />
+                        android:background="@color/colorHint" />
 
                 </RelativeLayout>
 
@@ -183,7 +176,7 @@
                     android:text="@string/no_account"
                     android:layout_marginRight="5dp"
                     android:layout_marginEnd="5dp"
-                    android:textColor="@color/colorPrimaryText"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/medium_text" />
 
                 <TextView
@@ -191,7 +184,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/create_account"
-                    android:textColor="@drawable/text_button_color"
+                    android:textColor="@color/Green"
                     android:textSize="@dimen/medium_text" />
             </LinearLayout>
 

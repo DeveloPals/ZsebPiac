@@ -31,7 +31,6 @@
         <activity android:name=".ChooseActivity" />
         <activity android:name=".ProductListActivity" />
         <activity android:name=".MyProductListActivity" />
-        <activity android:name=".ProducersDataActivity" />
         <activity android:name=".NewProductActivity" />
         <activity android:name=".ProducersData2Activity" />
         <activity android:name=".NameActivity" />

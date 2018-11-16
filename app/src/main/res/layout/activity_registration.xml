@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@android:style/TextAppearance.DeviceDefault"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
@@ -12,24 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="0sp"
+        android:paddingBottom="300sp"
         android:scaleType="centerCrop"
-        android:src="@drawable/background" />
-
-    <ImageView
-        android:id="@+id/image_logo"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="25dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo" />
-
-
+        android:src="@drawable/ujregistration" />
     <ScrollView
         android:id="@+id/scroll_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image_logo"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="100dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,17 +31,18 @@
             android:layout_marginEnd="20dp"
             android:orientation="vertical"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:paddingRight="16dp"
+            android:layout_marginTop="125dp">
 
             <AutoCompleteTextView
                 android:id="@+id/text_regemail"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/trans_white_rectangle"
+                android:background="@drawable/trans_black_rectangle"
                 android:drawableLeft="@drawable/ic_user_icon"
                 android:drawablePadding="15dp"
-                android:drawableTint="#fff"
+                android:drawableTint="#000"
                 android:hint="Email"
                 android:paddingStart="15dp"
                 android:paddingLeft="15dp"
@@ -62,10 +56,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/trans_white_rectangle"
+                android:background="@drawable/trans_black_rectangle"
                 android:drawableLeft="@drawable/ic_password_icon"
                 android:drawablePadding="15dp"
-                android:drawableTint="#fff"
+                android:drawableTint="#000"
                 android:hint="Jelszó"
                 android:inputType="textPassword"
                 android:paddingStart="15dp"
@@ -79,10 +73,10 @@
                 android:id="@+id/text_regconfirm"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="@drawable/trans_white_rectangle"
+                android:background="@drawable/trans_black_rectangle"
                 android:drawableLeft="@drawable/ic_password_icon"
                 android:drawablePadding="15dp"
-                android:drawableTint="#fff"
+                android:drawableTint="#000"
                 android:hint="Jelszó megerősítése"
                 android:inputType="textPassword"
                 android:paddingStart="15dp"
@@ -99,8 +93,8 @@
                 android:background="@drawable/login_button"
                 android:text="Regisztráció"
                 android:textAllCaps="false"
-                android:textColor="#000"
-                android:textSize="17dp"
+                android:textColor="#fff"
+                android:textSize="17sp"
                 android:transitionName="loginTransition" />
 
             <CheckBox
@@ -109,8 +103,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Adatvédelmi nyilatkozat elfogadása"
-                android:textColor="#fff"
-                android:textColorLink="@color/colorAccent"
+                android:textColor="#000"
+                android:textColorLink="@color/Green"
                 android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>

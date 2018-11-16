@@ -11,7 +11,7 @@
     <string name="google_login">Belépés Google fiókkal</string>
     <string name="no_account">Nincs fiókja?</string>
     <string name="create_account">Fiók létrehozása</string>
-    <string name="choose">Kérem válasszon</string>
+    <string name="choose">Kérem válasszon!</string>
     <string name="producer">Őstermelő</string>
     <string name="customer">Vásárló</string>
     <string name="first_name">Keresztnév</string>
